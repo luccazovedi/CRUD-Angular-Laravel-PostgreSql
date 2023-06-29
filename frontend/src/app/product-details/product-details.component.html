@@ -1,0 +1,12 @@
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+  <div><strong>Name:</strong> {{ product.nome }}</div>
+  <div><strong>Category:</strong> {{ product.categoria }}</div>
+  <div><strong>Value:</strong> {{ product.valor }}</div>
+  <div><strong>Expiration Date:</strong> {{ product.dataVencimento }}</div>
+  <div><strong>Quantity:</strong> {{ product.quantidadeEstoque }}</div>
+  <div><strong>Perishable:</strong> {{ product.produtoPerecivel ? 'Yes' : 'No' }}</div>
+</div>
+
+<a [routerLink]="'/products'">Back to List</a>

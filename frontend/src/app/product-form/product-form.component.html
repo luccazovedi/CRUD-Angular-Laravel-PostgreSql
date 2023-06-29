@@ -1,0 +1,32 @@
+<h2>{{ isNew ? 'Create' : 'Edit' }} Product</h2>
+
+<form (submit)="submitForm()">
+  <div>
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="product.nome" name="nome" required>
+  </div>
+  <div>
+    <label>Category:</label>
+    <input type="text" [(ngModel)]="product.categoria" name="categoria" required>
+  </div>
+  <div>
+    <label>Value:</label>
+    <input type="number" [(ngModel)]="product.valor" name="valor" required>
+  </div>
+  <div>
+    <label>Expiration Date:</label>
+    <input type="date" [value]="formatDate(product.dataVencimento)" (input)="updateDate($event)" name="dataVencimento" required>
+  </div>
+  <div>
+    <label>Quantity:</label>
+    <input type="number" [(ngModel)]="product.quantidadeEstoque" name="quantidadeEstoque" required>
+  </div>
+  <div>
+    <label>Perishable:</label>
+    <input type="checkbox" [(ngModel)]="product.produtoPerecivel" name="produtoPerecivel">
+  </div>
+  <div>
+    <button type="submit">{{ isNew ? 'Create' : 'Update' }}</button>
+    <a [routerLink]="'/products'">Cancel</a>
+  </div>
+</form>

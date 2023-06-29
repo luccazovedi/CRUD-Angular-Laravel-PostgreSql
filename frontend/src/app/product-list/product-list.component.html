@@ -1,0 +1,32 @@
+<h2>Product List</h2>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Value</th>
+      <th scope="col">Expiration Date</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Perishable</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.nome }}</td>
+      <td>{{ product.categoria }}</td>
+      <td>{{ product.valor }}</td>
+      <td>{{ product.dataVencimento }}</td>
+      <td>{{ product.quantidadeEstoque }}</td>
+      <td>{{ product.produtoPerecivel ? 'Yes' : 'No' }}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['/products', product.id]">View</a>
+        <a class="btn btn-success" [routerLink]="['/products', product.id, 'edit']">Edit</a>
+        <a class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn btn-primary" [routerLink]="'/products/create'">Create Product</a>
